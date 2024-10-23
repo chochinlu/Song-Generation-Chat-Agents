@@ -8,6 +8,8 @@ prompts = [
   "Analyze lyrics",
   "Analyze this song's style and instruments",
   "Based on the lyrics, analyze the song style, list possible song styles, and provide a description of the song's instrument structure",
+  "Given a song's lyrics, analyze the song's style, list possible styles, and provide a description of the song's instrument structure",
+  "Given a song's lyrics, analyze the song's style, list possible styles, provide a description of the song's instrument structure, and generate a song title",
 ]
 
 [environment]
