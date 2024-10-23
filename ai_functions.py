@@ -1,4 +1,4 @@
-from prompts import LYRICS_ANALYSIS_SONG_STYLE_PROMPT, LYRICS_ANALYSIS_INSTRUMENTS_PROMPT, TITLE_GENERATION_PROMPT
+from prompts import LYRICS_ANALYSIS_SONG_STYLE_PROMPT, LYRICS_ANALYSIS_INSTRUMENTS_PROMPT, TITLE_GENERATION_PROMPT, SONG_STYLE_GENERATION_PROMPT, LYRICS_GENERATION_PROMPT
 from dotenv import load_dotenv
 from openai import OpenAI
 load_dotenv()
@@ -33,7 +33,7 @@ def analyze_song_instruments(lyrics):
     )
     return response.choices[0].message.content.strip()
 
-def generate_title(title, lyrics, style, language, thought):
+def generate_song_title(title, lyrics, style, language, thought):
     prompt = TITLE_GENERATION_PROMPT.format(
         title=title,
         lyrics=lyrics,
@@ -57,3 +57,41 @@ def generate_title(title, lyrics, style, language, thought):
     generated_title = generated_title.strip('"\'()[]{}')
     
     return generated_title
+
+def generate_song_style(song_style, thought=""):
+    prompt = SONG_STYLE_GENERATION_PROMPT.format(
+        style=song_style,
+        thought=thought,
+    )
+    
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a creative music style generator."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=60,
+        temperature=0.7
+    )
+    
+    generated_style = response.choices[0].message.content.strip()
+    return generated_style
+
+def generate_lyrics(instruments, language, thought):
+    prompt = LYRICS_GENERATION_PROMPT.format(
+        instruments=instruments,
+        language=language,
+        thought=thought
+    )
+    
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a talented songwriter capable of creating lyrics in multiple languages."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=500
+    )
+    
+    generated_lyrics = response.choices[0].message.content.strip()
+    return generated_lyrics
