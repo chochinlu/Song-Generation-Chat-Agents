@@ -5,6 +5,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def check_suno_credits():
+    """
+    Check the Suno API credits.
+    
+    :return: A dictionary containing the Suno API credits.
+    """
+    try:
+        response = requests.get(f"{os.getenv('SUNO_API_HOST')}/api/get_limit")
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        return f"Error checking Suno credits: {str(e)}"
+
 
 def generate_song(your_thought_input, generated_lyrics, style_input, title_input, instrumental_only=False):
     """
