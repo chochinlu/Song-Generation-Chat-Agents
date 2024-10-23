@@ -5,9 +5,12 @@ ollama_server_url = "http://localhost:11434"
 
 [sample_prompts]
 prompts = [
-  "What can you help me do?",
-  "Which tools do you have access to?",
-  "What are your capabilities?",
+  "Analyze lyrics",
+  "Please analyze the lyrical style of this song:",
+  "What is the main theme of this song's lyrics?",
+  "What are the important images or symbols in this song's lyrics?",
+  "How is the structure of this song's lyrics?",
+  "What is the emotional tone of this song's lyrics?",
 ]
 
 [environment]
