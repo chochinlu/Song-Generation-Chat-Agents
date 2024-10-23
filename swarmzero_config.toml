@@ -5,6 +5,8 @@ ollama_server_url = "http://localhost:11434"
 
 [sample_prompts]
 prompts = [
+  "Get YouTube song name and artist name",
+  "Get lyrics of a song by its name and artist",
   "Analyze lyrics",
   "Analyze this song's style and instruments",
   "Based on the lyrics, analyze the song style, list possible song styles, and provide a description of the song's instrument structure",
@@ -17,7 +19,7 @@ prompts = [
   "Generate a song based on your idea",
   "Generate Suno song",
   "Call Suno API to generate song, return image and audio URL, and Suno credits",
-  "Check Suno credits",
+  "Check Suno credits and return the number of credits left",
 ]
 
 [environment]

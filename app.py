@@ -1,7 +1,16 @@
 from swarmzero.sdk_context import SDKContext
 from swarmzero import Agent
 from dotenv import load_dotenv
-from ai_functions import analyze_song_style, analyze_song_instruments, generate_song_title, generate_song_style, generate_lyrics
+from ai_functions import (
+    analyze_song_style,
+    analyze_song_instruments,
+    generate_song_title,
+    generate_song_style,
+    generate_lyrics,
+    get_youtube_title,
+    get_youtube_song_name_and_artist,
+    get_lyrics,
+)
 from suno_api_functions import generate_song, check_suno_credits
 
 load_dotenv()
@@ -17,7 +26,10 @@ song_generator_agent = Agent(
         generate_song_style, 
         generate_lyrics,
         generate_song,
-        check_suno_credits
+        check_suno_credits,
+        get_youtube_title,
+        get_youtube_song_name_and_artist,
+        get_lyrics,
     ],
     instruction="A song generator agent that analyzes a song and generates prompts for a song generator model.",
     sdk_context=sdk_context,

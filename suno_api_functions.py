@@ -8,9 +8,11 @@ load_dotenv()
 def check_suno_credits():
     """
     Check the Suno API credits.
+    Only call this function when user mentions "suno credits" or "suno credit".
     
     :return: A dictionary containing the Suno API credits.
     """
+    print("checking suno credits")
     try:
         response = requests.get(f"{os.getenv('SUNO_API_HOST')}/api/get_limit")
         response.raise_for_status()
@@ -30,6 +32,7 @@ def generate_song(your_thought_input, generated_lyrics, style_input, title_input
     :param instrumental_only: Whether to generate an instrumental only song.
     :return: A tuple containing the image URL and audio URL of the generated song.
     """  
+    print("generating song")
     url = f"{os.getenv('SUNO_API_HOST')}/api/custom_generate"
     payload = {
         "prompt": generated_lyrics if not instrumental_only else your_thought_input,
