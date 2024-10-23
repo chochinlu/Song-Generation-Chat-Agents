@@ -13,6 +13,10 @@ prompts = [
   "Given a song's lyrics, analyze the song's style, list possible styles, provide a description of the song's instrument structure, and generate a song style",
   "Given a song's lyrics, analyze the song's style, list possible styles, provide a description of the song's instrument structure, and generate a song title and style",
   "Given a song's lyrics, analyze the song's style, list possible styles, provide a description of the song's instrument structure, and generate lyrics",
+  "Given a song's lyrics, analyze the song's style, list possible styles, provide a description of the song's instrument structure, and generate a song",
+  "Generate a song based on your idea",
+  "Generate Suno song",
+  "Call Suno API to generate song",
 ]
 
 [environment]
