@@ -31,7 +31,7 @@ def generate_song(your_thought_input, generated_lyrics, style_input, title_input
     :param style_input: The style input.
     :param title_input: The title input.
     :param instrumental_only: Whether to generate an instrumental only song.
-    :return: A tuple containing the image URL and audio URL of the generated song.
+    :return: the image URL and audio URL of the generated song.  Audio urls within are wrapped in audio tags. One image is paired with one audio link.
     """  
     print("generating song")
     url = f"{os.getenv('SUNO_API_HOST')}/api/custom_generate"
@@ -116,7 +116,7 @@ def get_lyrics_by_track_id(track_id):
     Get the lyrics of a song by its track ID.
     Always call the Musixmatch API to retrieve lyrics
     :param track_id: The ID of the song.
-    :return: A string containing the lyrics of the song.
+    :return: A string containing the lyrics of the song. 
     """
     print("getting lyrics by using musixmatch api and track id")
     lyrics_url = f'https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey={os.getenv('MUSIXMATCH_API_KEY')}&track_id={track_id}'
