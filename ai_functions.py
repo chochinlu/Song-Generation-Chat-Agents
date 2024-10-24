@@ -1,25 +1,11 @@
 from prompts import LYRICS_ANALYSIS_SONG_STYLE_PROMPT, LYRICS_ANALYSIS_INSTRUMENTS_PROMPT, TITLE_GENERATION_PROMPT, SONG_STYLE_GENERATION_PROMPT, LYRICS_GENERATION_PROMPT
 from dotenv import load_dotenv
 from openai import OpenAI
-from pytubefix import YouTube
 import requests
 import os
 load_dotenv()
 
 client = OpenAI()
-
-def get_youtube_title(youtube_url):
-    """
-    Get the title of a YouTube video.
-    This function is called when the user only inputs a YouTube URL to retrieve the title of the YouTube video
-    
-    :param youtube_url: The URL of the YouTube video.
-    :return: A string containing the YouTube video title.
-    """
-    print("getting youtube title")
-    yt = YouTube(youtube_url)
-    
-    return yt.title
 
 def get_youtube_song_name_and_artist(youtube_title):
     """

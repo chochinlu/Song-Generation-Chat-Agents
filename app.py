@@ -8,11 +8,14 @@ from ai_functions import (
     generate_song_title,
     generate_song_style,
     generate_lyrics,
-    get_youtube_title,
     get_youtube_song_name_and_artist,
+)
+from api_functions import (
+    generate_song,
+    check_suno_credits,
+    get_youtube_title,
     get_lyrics,
 )
-from api_functions import generate_song, check_suno_credits
 
 load_dotenv()
 

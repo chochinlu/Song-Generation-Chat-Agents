@@ -2,6 +2,7 @@ import os
 import requests
 from requests.exceptions import Timeout, RequestException
 from dotenv import load_dotenv
+from pytubefix import YouTube
 
 load_dotenv()
 
@@ -66,3 +67,62 @@ def generate_song(your_thought_input, generated_lyrics, style_input, title_input
     except Exception as e:
         error_message = f"Unexpected error: {str(e)}"
         return error_message
+
+def get_youtube_title(youtube_url):
+    """
+    Get the title of a YouTube video.
+    This function is called when the user only inputs a YouTube URL to retrieve the title of the YouTube video
+    
+    :param youtube_url: The URL of the YouTube video.
+    :return: A string containing the YouTube video title.
+    """
+    print("getting youtube title")
+    yt = YouTube(youtube_url)
+    
+    return yt.title
+
+def get_lyrics(track_name, artist_name):
+    """
+    Get the lyrics of a song by its name and artist.
+    This function is called when there's a song name and artist to retrieve the lyrics of the song
+    Always call the Musixmatch API to retrieve lyrics
+    
+    :param track_name: The name of the song.
+    :param artist_name: The name of the artist.
+    :return: A string containing the lyrics of the song.
+    """
+    print("getting lyrics by using musixmatch api")
+    base_url = 'https://api.musixmatch.com/ws/1.1/track.search'
+    params = {
+        'apikey': os.getenv('MUSIXMATCH_API_KEY'),
+        'q_track': track_name,
+        'q_artist': artist_name,
+        'page_size': 1,
+        's_track_rating': 'desc'
+    }
+    
+    response = requests.get(base_url, params=params)
+    data = response.json()
+    
+    if data['message']['header']['status_code'] == 200:
+        track_list = data['message']['body']['track_list']
+        if track_list:
+            track_id = track_list[0]['track']['track_id']
+            return get_lyrics_by_track_id(track_id)
+    return None
+
+def get_lyrics_by_track_id(track_id):
+    """
+    Get the lyrics of a song by its track ID.
+    Always call the Musixmatch API to retrieve lyrics
+    :param track_id: The ID of the song.
+    :return: A string containing the lyrics of the song.
+    """
+    print("getting lyrics by using musixmatch api and track id")
+    lyrics_url = f'https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey={os.getenv('MUSIXMATCH_API_KEY')}&track_id={track_id}'
+    response = requests.get(lyrics_url)
+    data = response.json()
+    
+    if data['message']['header']['status_code'] == 200:
+        return data['message']['body']['lyrics']['lyrics_body']
+    return None
