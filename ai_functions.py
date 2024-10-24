@@ -50,6 +50,7 @@ def get_lyrics(track_name, artist_name):
     :param artist_name: The name of the artist.
     :return: A string containing the lyrics of the song.
     """
+    print("getting lyrics by using musixmatch api")
     base_url = 'https://api.musixmatch.com/ws/1.1/track.search'
     params = {
         'apikey': os.getenv('MUSIXMATCH_API_KEY'),
@@ -76,6 +77,7 @@ def get_lyrics_by_track_id(track_id):
     :param track_id: The ID of the song.
     :return: A string containing the lyrics of the song.
     """
+    print("getting lyrics by using musixmatch api and track id")
     lyrics_url = f'https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey={os.getenv('MUSIXMATCH_API_KEY')}&track_id={track_id}'
     response = requests.get(lyrics_url)
     data = response.json()
