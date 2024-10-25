@@ -45,11 +45,6 @@ This tool aims to address the above issues, primarily through:
 5. Suno Status Check
    - Users can check the current available status of Suno
 
-6. Sidebar Functionality
-   - Provides various prompt shortcuts
-   - Top-to-bottom flow represents a complete song generation process
-   - Each prompt also functions as an individual tool that can be called separately
-   - Provides clear instructions when the Agent encounters difficulties
 
 ## Usage Flow
 
@@ -116,7 +111,6 @@ Note: Throughout the process, the sidebar provides convenient prompts and tools 
    - Register for a [SerpAPI](https://serpapi.com/) account
    - Obtain the API key
 
-
 ### Environment Setup
 
 1. Create and configure the `.env` file at the root of the project
@@ -141,15 +135,25 @@ Note: Throughout the process, the sidebar provides convenient prompts and tools 
 ### Starting the Service
 
 1. Install dependencies
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 2. Run the project
-   ```
+   ```bash
    python app.py
    ```
 
-5. Start the frontend (specific steps to be added)
+3. Start the frontend
+   - Refer to [Song-Generation-Chat](https://github.com/chochinlu/Song-Generation-Chat) for usage
+
+### API Usage
+
+You can also call the API endpoint `/api/v1/chat` in your application or frontend.
+
+For detailed information, please refer to the [SwarmZero documentation](https://github.com/swarmzero/swarmzero?tab=readme-ov-file).
 
 ## Screenshots
+
+The frontend uses [Song-Generation-Chat](https://github.com/chochinlu/Song-Generation-Chat) 
+
