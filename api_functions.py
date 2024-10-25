@@ -144,3 +144,19 @@ def get_youtube_video_url(query:str):
     for item in data['items']:
         video_urls.append(f"https://www.youtube.com/watch?v={item['id']['videoId']}")
     return video_urls
+
+def serp_search(query:str, language:str="en"):
+    """
+    Search the web for a query using the Serp API
+
+    :param query: The query to search for on the web.
+    :param language: The language to search for on the web.
+    
+    :return: a dictionary containing the search results
+    """
+    print("searching the web for a query using the Serp API")
+    serp_api_key = os.getenv('SERP_API_KEY')
+    serp_search_url = f'https://serpapi.com/search.json?q={query}&hl={language}&api_key={serp_api_key}&google_domain=google.com'
+    response = requests.get(serp_search_url)
+    data = response.json()
+    return data

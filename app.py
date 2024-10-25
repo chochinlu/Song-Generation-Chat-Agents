@@ -16,6 +16,7 @@ from api_functions import (
     get_youtube_title,
     get_youtube_video_url,
     get_lyrics,
+    serp_search,
 )
 
 load_dotenv()
@@ -30,6 +31,7 @@ song_generator_agent = Agent(
         generate_song_title, 
         generate_song_style, 
         generate_lyrics,
+        serp_search,
         generate_song,
         check_suno_credits,
         get_youtube_title,

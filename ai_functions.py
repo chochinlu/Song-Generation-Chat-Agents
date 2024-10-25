@@ -113,7 +113,7 @@ def analyze_song_instruments(lyrics):
     )
     return response.choices[0].message.content.strip()
 
-def generate_song_title(title, lyrics, style, language, thought):
+def generate_song_title(title, lyrics, style, language="en", thought=""):
     """
     Generates a song title based on the title, lyrics, style, language, and thought.
     User can call this function when there's a song title, lyrics, style, language, and thought to generate a song title
@@ -157,6 +157,7 @@ def generate_song_style(song_style, thought=""):
     
     :param song_style: The song style to analyze.
     :param thought: The songwriter's thought.
+
     :return: A string containing the generated song style.
     """
     print("generating song style")
