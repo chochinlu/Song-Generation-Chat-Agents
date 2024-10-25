@@ -157,7 +157,6 @@ For detailed information, please refer to the [SwarmZero documentation](https://
 
 The frontend uses [Song-Generation-Chat](https://github.com/chochinlu/Song-Generation-Chat) 
 
-## Screenshots
 
 ![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/1.png)
 
