@@ -1,7 +1,6 @@
 # Suno Song Generation Agent
 
-An Agent capable of querying song information, analyzing songs, and generating song details
-Powered by [SwamZero Agent](https://github.com/swarmzero/swarmzero)
+An intelligent Song Generation Agent powered by [SwamZero Agent](https://github.com/swarmzero/swarmzero)
 
 ## Why I want to build this agent
 
