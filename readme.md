@@ -10,7 +10,7 @@ When we hear a song we like, we might want to create similar music. However, for
 2. We might be unable to identify the song's style (e.g., rock or jazz).
 3. We may not know which instruments are used in the song.
 
-Even with convenient tools like Suno, where songs can be generated just by providing prompts, we might still not know how to use them effectively.
+Even with convenient tools like [Suno AI](https://suno.com/), where songs can be generated just by providing prompts, we might still not know how to use them effectively.
 
 ## Purpose of this application
 
