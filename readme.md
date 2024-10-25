@@ -160,6 +160,11 @@ The frontend uses [Song-Generation-Chat](https://github.com/chochinlu/Song-Gener
 ## Screenshots
 
 ![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/1.png)
+
 ![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/2.png)
+
 ![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/3.png)
+
 ![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/4.png)
+
+![image](https://github.com/chochinlu/Song-Generation-Chat-Agents/blob/main/doc/images/8.png)
