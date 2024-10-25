@@ -126,3 +126,21 @@ def get_lyrics_by_track_id(track_id):
     if data['message']['header']['status_code'] == 200:
         return data['message']['body']['lyrics']['lyrics_body']
     return None
+
+def get_youtube_video_url(query:str):
+    """
+    Get the video URL of a YouTube video.
+
+    :param query: The query to search for on YouTube.
+    :return: A list containing the URL of the YouTube video.
+    """
+    print("getting youtube video url")
+    youtube_api_key = os.getenv('YOUTUBE_API_KEY')
+    MAX_RESULTS = 3
+    youtube_search_url = f'https://www.googleapis.com/youtube/v3/search?key={youtube_api_key}&q={query}&type=video&maxResults={MAX_RESULTS}&key={youtube_api_key}'
+    response = requests.get(youtube_search_url)
+    data = response.json()
+    video_urls = []
+    for item in data['items']:
+        video_urls.append(f"https://www.youtube.com/watch?v={item['id']['videoId']}")
+    return video_urls

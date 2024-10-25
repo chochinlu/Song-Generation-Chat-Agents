@@ -14,6 +14,7 @@ from api_functions import (
     generate_song,
     check_suno_credits,
     get_youtube_title,
+    get_youtube_video_url,
     get_lyrics,
 )
 
@@ -34,6 +35,7 @@ song_generator_agent = Agent(
         get_youtube_title,
         get_youtube_song_name_and_artist,
         get_lyrics,
+        get_youtube_video_url,
     ],
     instruction="A song generator agent that analyzes a song and generates prompts for a song generator model.",
     sdk_context=sdk_context,
